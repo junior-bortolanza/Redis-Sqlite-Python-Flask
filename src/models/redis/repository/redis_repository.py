@@ -11,7 +11,7 @@ class RedisRepository(RedisRepositoryInterface):
     def get_key(self, key: str) -> str:
         value = self.__redis_conn.get(key)
         if value:
-            return value.decont("utf-8")
+            return value.decode("utf-8")
         return None
 
     def insert_hash(self, key: str, field: str, value: any) -> None:
